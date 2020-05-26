@@ -1,0 +1,26 @@
+{
+  "name": "taskily",
+  "version": "1.0.0",
+  "description": "Developer,asignments and task",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marpol96/TASKILY.git"
+  },
+  "keywords": [
+    "negocios",
+    "web"
+  ],
+  "author": "Pol-Developer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marpol96/TASKILY/issues"
+  },
+  "homepage": "https://github.com/Marpol96/TASKILY#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
