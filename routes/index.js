@@ -7,7 +7,7 @@ const proyectosController =require("../controllers/proyectosController");
 //construir rutas disponibles para el servidor, las rutas deben 
 //exportarse para porder ser utilizadas en otros archivos
 module.exports = function(){
-    routes.get("/",proyectosController.home);
+    routes.get("/home",proyectosController.home);
     routes.get("/holamundo", proyectosController.holamundo);
     return routes;
 }
