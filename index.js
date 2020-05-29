@@ -5,6 +5,17 @@ const express = require('express');
 //importar todas las rutas disponibles
 const routes=require("./routes");
 
+//crear conexion con la base de datos
+const db = require("./config/db");
+
+// Realizar la conexion a la base de datos
+// Sequilize se conecta mediante porimese
+db  .sync()
+    .then(() => console.log("Conectado al servidor de BD"))
+    .catch((error) => console.log(error));
+
+
+
 // crear un servidor de express
 const app=express();
 
