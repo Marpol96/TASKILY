@@ -2,7 +2,7 @@
 const Sequelize = require("sequelize");
 require("dotenv").config({path: "variables.env"});
 //establecer los parametros de la conexion a la base de datos
-const db=new Sequelize("root",
+const db=new Sequelize("taskily",
 process.env.MYSQLUSER,
 process.env.MYSQLPASS,
 {
