@@ -26,4 +26,4 @@ exports.nuevoProyecto = (req, res, next) => {
         //si no hay errores aqui deberia insertar el proyecto a la base de datos
         res.send("Insertado en la BD");
     }
-}
+};
