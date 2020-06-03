@@ -1,8 +1,17 @@
+<h1>Crear un proyecto</h1>
+{{!--mostrar los errores en caso de existir--}}
+{{#if errores}}
+  {{#each errores}}
+    <div class="alert alert-danger" role="alert"> 
+      {{error}}
+    </div>
+  {{/each}}
+{{/if}}
 <!-- codigo del body-->
-<form method="POST">
+<form method="POST" action="/nuevo_proyecto">
   <div class="form-group">
     <label for="nombre">Nombre del proyecto</label>
-    <input type="text" name="" id="nombre" class="form-control">
+    <input type="text" name="nombre" id="nombre" class="form-control">
   </div>
-  <button type="submit" class="btn btn-primary">Guardar</button>
+  <button type="submit" class="btn btn-primary" id="nuevoProyecto">Guardar</button>
 </form>
