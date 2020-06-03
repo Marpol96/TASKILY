@@ -1,6 +1,8 @@
+//importar modelos necesarios
+const Proyecto = require("../models/Proyecto");
 exports.home = (req,res,next) => {
-    res.send("¡Bienvenido!");
+    res.render("crear_proyecto");
 }
-exports.holamundo = (req,res,next) => {
-    res.send("¡Hola mundo!");
+exports.nuevoProyecto = (req,res,next) => {
+    res.send("Aqui se crea un nuevo proyecto");
 }

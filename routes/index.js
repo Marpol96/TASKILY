@@ -8,6 +8,6 @@ const proyectosController =require("../controllers/proyectosController");
 //exportarse para porder ser utilizadas en otros archivos
 module.exports = function(){
     routes.get("/",proyectosController.home);
-    routes.get("/holamundo", proyectosController.holamundo);
+    routes.post("/nuevo_proyecto", proyectosController.nuevoProyecto);
     return routes;
 }
