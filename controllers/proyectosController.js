@@ -7,7 +7,7 @@ exports.nuevoProyecto = (req, res, next) => {
     //validar el input del formulario tenga valor
     //para acceder a los valores y asignarlos en un solo paso
     //vamos a utilizar destructuring.
-    const { nombre } = req.body;
+    const { nombre, numero1, numero2 } = req.body;
 
     //errores
     const errores = [];
@@ -24,6 +24,8 @@ exports.nuevoProyecto = (req, res, next) => {
         });
     } else {
         //si no hay errores aqui deberia insertar el proyecto a la base de datos
-        res.send("Insertado en la BD");
+        res.send(`El resultado de la suma de los dos numero es: ${
+            Number(numero1) + Number(numero2)
+        }`);
     }
 };
