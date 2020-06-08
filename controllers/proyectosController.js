@@ -24,8 +24,6 @@ exports.nuevoProyecto = (req, res, next) => {
         });
     } else {
         //si no hay errores aqui deberia insertar el proyecto a la base de datos
-        res.send(`El resultado de la suma de los dos numero es: ${
-            Number(numero1) + Number(numero2)
-        }`);
+        res.send("Insertado en la BD");
     }
 };
