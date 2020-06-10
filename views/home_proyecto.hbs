@@ -1,0 +1,20 @@
+<h1>Proyectos</h1>
+{{!--mostrar los errores en caso de existir--}}
+{{#if mensajes}}
+  {{#each mensajes}}
+    <div class="alert {{type}}" role="alert"> 
+      {{error}}
+    </div>
+  {{/each}}
+{{/if}}
+{{#if proyectos}}
+    {{#each proyectos}}
+        <div class="card">
+            <h4 class="card-header">{{ nombre }}</h4>
+            <div class="card-body">
+                <p class="card-text">Esta es la lista de los proyectos.</p>
+                <a href="#" class="btn btn-primary">Ver proyecto</a>
+            </div>
+        </div>
+    {{/each}}
+{{/if}}

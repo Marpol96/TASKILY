@@ -3,27 +3,65 @@ const Proyecto = require("../models/Proyecto");
 exports.home = (req, res, next) => {
     res.render("crear_proyecto");
 }
-exports.nuevoProyecto = (req, res, next) => {
+
+//conexion para almacenar en la base de datos asincrona(async / await)
+exports.nuevoProyecto = async(req, res, next) => {
     //validar el input del formulario tenga valor
     //para acceder a los valores y asignarlos en un solo paso
     //vamos a utilizar destructuring.
-    const { nombre, numero1, numero2 } = req.body;
+    const { nombre } = req.body;
 
     //errores
-    const errores = [];
+    const mensajes = [];
 
     //verificar que nombre del proyecto tiene un valor
     if (!nombre) {
-        errores.push({ error: 'El nombre del proyecto no puede ser vacio' })
+        mensajes.push({
+            error: "El nombre del proyecto no puede ser vacio",
+            type: "alert-danger",
+        });
     }
 
     //si hay errores
-    if (errores.length) {
+    if (mensajes.length) {
         res.render("crear_proyecto", {
-            errores: errores,
+            mensajes: mensajes,
         });
     } else {
         //si no hay errores aqui deberia insertar el proyecto a la base de datos
-        res.send("Insertado en la BD");
+        //almacenar en la base dedatos
+        await Proyecto.create({ nombre });
+        try {
+            mensajes.push({
+                error: "Proyecto almacenado satisfactoriamente.",
+                type: "alert-success",
+            });
+            res.render("crear_proyecto", {
+                mensajes,
+            });
+        } catch (error) {
+            mensajes.push({
+                error: "Ha ocurrido un error interno en el servidor. Comunicate con el personas de Taskily",
+                type: "alert-danger",
+            });
+        }
     }
 };
+
+//obtener todos los proyectos
+exports.proyectosHome = async(req, res, next) => {
+    const mensajes = [];
+    try {
+        //variable que almacene todos los proyectos
+        const proyectos = await Proyecto.findALL();
+        res.render("home_proyecto", { proyectos });
+    } catch (error) {
+        //crear mensaje de error
+        mensajes.push({
+            error: "Error al obtener los proyectos. Favor reintentar",
+            type: "alert-warning",
+        });
+        res.render("home_proyecto", mensajes);
+
+    }
+}

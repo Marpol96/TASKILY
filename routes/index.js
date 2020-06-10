@@ -9,5 +9,8 @@ const proyectosController = require("../controllers/proyectosController");
 module.exports = function() {
     routes.get("/", proyectosController.home);
     routes.post("/nuevo_proyecto", proyectosController.nuevoProyecto);
+
+    //vista de proyectos
+    routes.get("/home_proyecto", proyectosController.proyectosHome);
     return routes;
 }

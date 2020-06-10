@@ -2,7 +2,7 @@
 {{!--mostrar los errores en caso de existir--}}
 {{#if errores}}
   {{#each errores}}
-    <div class="alert alert-danger" role="alert"> 
+    <div class="alert {{type}}" role="alert"> 
       {{error}}
     </div>
   {{/each}}
