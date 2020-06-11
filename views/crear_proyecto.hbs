@@ -1,8 +1,8 @@
 <h1>Crear un proyecto</h1>
 {{!--mostrar los errores en caso de existir--}}
-{{#if errores}}
-  {{#each errores}}
-    <div class="alert {{type}}" role="alert"> 
+{{#if mensajes}}
+  {{#each mensajes}}
+    <div class={{type}} role="alert"> 
       {{error}}
     </div>
   {{/each}}

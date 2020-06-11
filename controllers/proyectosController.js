@@ -33,7 +33,7 @@ exports.nuevoProyecto = async(req, res, next) => {
         await Proyecto.create({ nombre });
         try {
             mensajes.push({
-                error: "Proyecto almacenado satisfactoriamente.",
+                error: "Proyecto almacenado satisfactoriamente",
                 type: "alert-success",
             });
             res.render("crear_proyecto", {

@@ -1,0 +1,14 @@
+<h1 class="mt-3">Tabla de retorno</h1>
+{{#if cuotas}}
+    <table>
+    {{#each cuotas}}
+        <tr>
+            <td>{{cuotas.mes}}</td>
+            <td>{{cuotas.capital}}</td>
+            <td>{{cuotas.interesFixed}}</td>
+            <td>{{cuotas.cuotaFixed}}</td>
+            <td>{{deuda}}</td>
+        </tr>
+    {{/each}}
+    </table>
+{{/if}}
