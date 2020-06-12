@@ -61,7 +61,7 @@ exports.proyectosHome = async(req, res, next) => {
             error: "Error al obtener los proyectos. Favor reintentar",
             type: "alert-warning",
         });
-        res.render("home_proyecto", mensajes);
+        res.render("home_proyecto", { mensajes });
 
     }
 }
