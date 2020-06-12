@@ -9,19 +9,20 @@ const calcularMetodoFrances = (capital, tasaInteres, plazo) => {
 
     const cuotas = [];
     //transformar los años en meses
-    plazo = math.round(plazo * 12);
+    plazo = Math.round(plazo * 12);
 
     //cacular la cuota
     //en el metodo frances la cuota siempre es la misma
     cuota = (capital * (tasaInteres / 100)) / (1 - (1 + (tasaInteres / 100)) ** -plazo);
     cuotaFixed = cuota.toFixed(2);
-    while (mes != plazo) {
+    while (mes < plazo) {
         interes = deuda * (tasaInteres / 100);
         interesFixed = interes.toFixed(2);
 
         capital = cuotaFixed - interesFixed;
 
         deuda -= capital;
+        // deuda = deuda.to;
 
         mes++;
 
@@ -29,7 +30,7 @@ const calcularMetodoFrances = (capital, tasaInteres, plazo) => {
             mes,
             capital,
             interesFixed,
-            cuota,
+            cuotaFixed,
             deuda,
         });
     }
@@ -38,7 +39,7 @@ const calcularMetodoFrances = (capital, tasaInteres, plazo) => {
 
 //muestra el formulario
 exports.metodoFrances = (req, res, next) => {
-    res.send("formulario_prestamos");
+    res.render("formulario_prestamo");
 };
 
 //desplegar los valores
@@ -46,6 +47,6 @@ exports.mostrarMetodoFrances = (req, res, next) => {
     //realizar los calculos
     const { monto, tasaInteres, periodo } = req.body;
     const cuotas = calcularMetodoFrances(monto, tasaInteres, periodo);
-
+    console.log(cuotas);
     res.render("prestamo", { cuotas });
 };

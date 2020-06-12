@@ -16,7 +16,7 @@ module.exports = function() {
     routes.get("/home_proyecto", proyectosController.proyectosHome);
 
     //parte del examen
-    routes.get("/prestamo", prestamosController.metodoFrances);
+    routes.get("/prestamos", prestamosController.metodoFrances);
 
     routes.post("/prestamos", prestamosController.mostrarMetodoFrances);
     return routes;
