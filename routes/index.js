@@ -13,7 +13,7 @@ module.exports = function() {
     routes.post("/nuevo_proyecto", proyectosController.nuevoProyecto);
 
     //vista de proyectos
-    routes.get("/home_proyecto", proyectosController.proyectosHome);
+    routes.get("/home_proyecto", proyectosController.proyectoHome);
 
     //parte del examen
     routes.get("/prestamos", prestamosController.metodoFrances);
