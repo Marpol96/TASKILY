@@ -8,12 +8,12 @@ const prestamosController = require("../controllers/prestamosController");
 //construir rutas disponibles para el servidor, las rutas deben 
 //exportarse para porder ser utilizadas en otros archivos
 module.exports = function() {
-    routes.get("/", proyectosController.home);
+    routes.get("/", proyectosController.proyectoHome);
 
     routes.post("/nuevo_proyecto", proyectosController.nuevoProyecto);
 
     //vista de proyectos
-    routes.get("/home_proyecto", proyectosController.proyectoHome);
+    routes.get("/nuevo_proyecto", proyectosController.formularioNuevoProyecto);
 
     //parte del examen
     routes.get("/prestamos", prestamosController.metodoFrances);

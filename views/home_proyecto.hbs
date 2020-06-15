@@ -2,19 +2,25 @@
 {{!--mostrar los errores en caso de existir--}}
 {{#if mensaje}}
   {{#each mensaje}}
-    <div class={{type}} role="alert"> 
+    <div class="alert {{type}}" role="alert"> 
       {{error}}
     </div>
   {{/each}}
 {{/if}}
+<div class="container">
 {{#if proyectos}}
- <div class="card"> 
-    {{#each proyectos}}  
+    {{#each proyectos}}
+    <div class="card">   
       <h4 class="card-header"> {{dataValues.nombre}} </h4>
-    {{/each}}
-    <div class="card-body">
-      <p class="card-text">Esta es la lista de proyectos</p>
-      <a href="" class="btn btn-primary">Ver producto</a>
+      <div class="card-body">
+        <p class="card-text">{{dataValues.descripcion}}</p>
+        <p class="card-text">{{dataValues.fecha}}</p>
+        <a href="" class="btn btn-primary">Ver producto</a>
+      </div>
     </div>
-  </div>
+    {{/each}}
+{{else}}
+  <h4>Ahun no tienes ningun proyecto. !animate a crear uno¡</h4>
+  <a href="/nuevo_proyecto" class="btn btn-primary btn-lg">Crear un proyecto</a>
 {{/if}}
+</div>
