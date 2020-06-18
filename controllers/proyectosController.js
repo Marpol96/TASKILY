@@ -53,12 +53,15 @@ exports.nuevoProyecto = async(req, res, next) => {
 };
 
 //obtener todos los proyectos
-exports.proyectoHome = async(req, res, nex) => {
+exports.proyectoHome = async(req, res, next) => {
     const mensaje = [];
 
     try {
         const proyectos = await Proyecto.findAll();
         res.render("home_proyecto", { proyectos });
+
+
+
     } catch (error) {
         mensaje.push({
             error: "Error al obtener los proyectos. Favor reintentar",
@@ -66,4 +69,4 @@ exports.proyectoHome = async(req, res, nex) => {
         });
         res.render("home_proyecto", { mensaje });
     }
-};
+}

@@ -11,6 +11,9 @@ const bodyParser = require("body-parser");
 //importar todas las rutas disponibles
 const routes = require("./routes");
 
+//importar passport para inisiar secion
+const passport = require("./config/passport");
+
 //crear conexion con la base de datos
 const db = require("./config/db");
 
@@ -42,6 +45,10 @@ app.set("view engine", "hbs");
 
 //habilitar body parser para leer los datos enviados por POST
 app.use(bodyParser.urlencoded({ extended: true }));
+
+//crear una instancia de passport y cargar nuestra estrategia
+app.use(passport.initialize());
+app.use(passport.session());
 
 //indicarle a express donde estan las rutas del servidor
 app.use("/", routes());
