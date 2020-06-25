@@ -15,5 +15,7 @@ exports.crearCuenta = async(req, res, next) => {
     }
 };
 exports.formularioIniciarSesion = (req, res, next) => {
-    res.render("iniciar_sesion", { layout: "auth" });
+    //verificar si existe algun mensaje
+    const messages = res.locals.messages;
+    res.render("iniciar_sesion", { layout: "auth", messages });
 };

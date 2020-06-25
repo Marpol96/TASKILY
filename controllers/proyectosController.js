@@ -6,6 +6,9 @@ exports.formularioNuevoProyecto = (req, res, next) => {
 
 //conexion para almacenar en la base de datos asincrona(async / await)
 exports.nuevoProyecto = async(req, res, next) => {
+
+    //obtener el usuario actual
+    const usuario = res.locals.usuario;
     //validar el input del formulario tenga valor
     //para acceder a los valores y asignarlos en un solo paso
     //vamos a utilizar destructuring.
@@ -37,7 +40,7 @@ exports.nuevoProyecto = async(req, res, next) => {
         //si no hay errores aqui deberia insertar el proyecto a la base de datos
         //almacenar en la base dedatos
         try {
-            await Proyecto.create({ nombre, descripcion });
+            await Proyecto.create({ nombre, descripcion, usuarioId: usuario.id });
             mensajes.push({
                 error: "Proyecto almacenado satisfactoriamente",
                 type: "alert-success",
@@ -57,7 +60,11 @@ exports.proyectoHome = async(req, res, next) => {
     const mensaje = [];
 
     try {
-        const proyectos = await Proyecto.findAll();
+        const proyectos = await Proyecto.findAll({
+            where: {
+                usuarioId: usuario.id,
+            },
+        });
         res.render("home_proyecto", { proyectos });
 
 
